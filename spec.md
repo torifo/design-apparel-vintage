@@ -22,7 +22,7 @@
 
 ### Background
 - FRAYは本デザイン研究のために作成した架空ブランドであり、実在のブランド・店舗・商品ではない
-- `design-apparel-vintage` リポジトリ、`design-apparel-vintage.riumu.net` 独自ドメイン予定
+- `design-apparel-vintage` リポジトリ、`design.apparel-vintage.riumu.net` 独自ドメイン予定
 - 同シリーズ4作のうちの1作（他3作と明確に異なるライトモード・温暖色設計）
 
 ---
@@ -179,7 +179,7 @@ index.html
 | # | Question | Owner | Due | Status |
 |---|----------|-------|-----|--------|
 | 1 | ブランドストーリーのテキスト量（現在2段落）は増やすか | torifo | 実装時 | Open |
-| 2 | `design-apparel-vintage.riumu.net` のDNS設定タイミング | torifo | 後日 | Open |
+| 2 | `design.apparel-vintage.riumu.net` のDNS設定タイミング | torifo | 後日 | Open |
 | 3 | 商品画像はセピア単色か、わずかに色付きか | torifo | 実装時 | Open |
 
 ---
