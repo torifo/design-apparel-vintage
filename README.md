@@ -4,7 +4,7 @@
 
 <a id="english"></a>
 
-# FRAY — apparel-vintage
+# FRAY — design-apparel-vintage
 
 > **"Worn with intention"**
 
@@ -18,8 +18,8 @@ FRAY is a fictional brand created for this design study. It is not a real brand,
 |---|---|
 | **Brand** | FRAY |
 | **Persona** | vintage |
-| **Live Site** | [torifo.github.io/apparel-vintage](https://torifo.github.io/apparel-vintage/) |
-| **Custom Domain** | `design.apparel-vintage.riumu.net` *(planned — not yet active)* |
+| **Live Site** | [torifo.github.io/design-apparel-vintage](https://torifo.github.io/design-apparel-vintage/) |
+| **Custom Domain** | `design-apparel-vintage.riumu.net` *(planned — not yet active)* |
 
 ## Design Concept
 
@@ -40,16 +40,16 @@ This repository is one of four design studies under the **apparel persona series
 
 | Persona | Brand | Repo |
 |---------|-------|------|
-| trend | LUEUR | [apparel-trend](https://github.com/torifo/apparel-trend) |
-| street | ARCH | [apparel-street](https://github.com/torifo/apparel-street) |
-| vintage | FRAY | [apparel-vintage](https://github.com/torifo/apparel-vintage) |
-| minimal | FORM | [apparel-minimal](https://github.com/torifo/apparel-minimal) |
+| trend | LUEUR | [design-apparel-trend](https://github.com/torifo/design-apparel-trend) |
+| street | ARCH | [design-apparel-street](https://github.com/torifo/design-apparel-street) |
+| vintage | FRAY | [design-apparel-vintage](https://github.com/torifo/design-apparel-vintage) |
+| minimal | FORM | [design-apparel-minimal](https://github.com/torifo/design-apparel-minimal) |
 
 ---
 
 <a id="japanese"></a>
 
-# FRAY — apparel-vintage（日本語）
+# FRAY — design-apparel-vintage（日本語）
 
 > **「意志をまとう」**
 
@@ -63,8 +63,8 @@ FRAYは、このデザイン研究のために作成した架空ブランドで�
 |---|---|
 | **ブランド** | FRAY（フレイ） |
 | **ペルソナ** | vintage |
-| **公開URL** | [torifo.github.io/apparel-vintage](https://torifo.github.io/apparel-vintage/) |
-| **独自ドメイン** | `design.apparel-vintage.riumu.net` *（設定予定・現在未割り当て）* |
+| **公開URL** | [torifo.github.io/design-apparel-vintage](https://torifo.github.io/design-apparel-vintage/) |
+| **独自ドメイン** | `design-apparel-vintage.riumu.net` *（設定予定・現在未割り当て）* |
 
 ## デザインコンセプト
 
