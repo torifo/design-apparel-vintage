@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FRAY — Worn with intention</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Serif+JP:wght@400;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F2EBE0;
+      --bg-sub: #E8DDD0;
+      --bg-card: #FDFAF6;
+      --fg: #2C2018;
+      --fg-muted: #8B7355;
+      --border: #D4C5B0;
+      --accent: #8B5C3E;
+      --accent-warm: #C4914A;
+      --accent-deep: #3D3028;
+      --font-display: 'Playfair Display', 'Noto Serif JP', serif;
+      --font-body: 'DM Serif Text', 'Noto Serif JP', serif;
+      --ease: cubic-bezier(.4,0,.2,1);
+    }
+    html {
+      scroll-behavior: smooth;
+      line-break: strict;
+      overflow-wrap: anywhere;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--font-body);
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -20%;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: .045;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 420 420' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.18' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' fill='%238b5c3e' filter='url(%23p)'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    nav {
+      padding: 2rem clamp(1.2rem, 5vw, 4rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: .1em;
+      font-weight: 700;
+    }
+    .nav-links { display: flex; gap: 2rem; color: var(--fg-muted); font-size: .95rem; }
+    .hero {
+      min-height: calc(100svh - 116px);
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(2rem, 6vw, 6rem);
+      align-items: center;
+      padding: clamp(3rem, 7vw, 6rem) clamp(1.2rem, 5vw, 4rem);
+    }
+    .hero-image {
+      min-height: 62vh;
+      border: 1px solid var(--border);
+      padding: .7rem;
+      background: var(--bg-card);
+      transform: rotate(-1deg);
+    }
+    .hero-image img { filter: sepia(.6) brightness(.85) contrast(1.05); }
+    .kicker {
+      color: var(--accent);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-size: .9rem;
+      margin-bottom: 1rem;
+    }
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 600; line-height: .98; }
+    h1 { font-size: clamp(5rem, 15vw, 14rem); letter-spacing: 0; }
+    .tagline { font-style: italic; color: var(--accent); font-size: clamp(1.5rem, 3vw, 2.4rem); margin-top: .7rem; }
+    .intro { margin-top: 1.6rem; max-width: 34rem; color: var(--fg-muted); }
+    .section { padding: clamp(4.5rem, 9vw, 8rem) clamp(1.2rem, 5vw, 4rem); border-top: 1px solid var(--border); }
+    h2 { font-size: clamp(2.8rem, 7vw, 6rem); }
+    .story-grid {
+      display: grid;
+      grid-template-columns: .75fr 1.25fr;
+      gap: clamp(2rem, 6vw, 5rem);
+    }
+    .story-copy {
+      columns: 2 280px;
+      column-gap: 2.5rem;
+      color: #4d3a2c;
+      font-size: 1.04rem;
+    }
+    .story-copy p { margin-bottom: 1.2rem; }
+    .shop-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1rem;
+      align-items: start;
+      margin-top: 3rem;
+    }
+    .item:nth-child(1) { grid-column: 1 / 5; }
+    .item:nth-child(2) { grid-column: 5 / 9; margin-top: 4rem; }
+    .item:nth-child(3) { grid-column: 9 / 13; }
+    .item:nth-child(4) { grid-column: 3 / 8; margin-top: 2rem; }
+    .item {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: .55rem;
+    }
+    .stamp {
+      position: absolute;
+      z-index: 2;
+      top: .9rem;
+      left: .8rem;
+      padding: .2rem .6rem;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: rgba(253,250,246,.84);
+      transform: rotate(-2deg);
+      font-size: .78rem;
+    }
+    .item-img { aspect-ratio: 3/4; overflow: hidden; }
+    .item img { filter: sepia(.48) brightness(.92); transition: filter .8s var(--ease), transform 1s var(--ease); }
+    .item:hover img { filter: sepia(.12) brightness(.98); transform: scale(1.035); }
+    .item-info { padding: .8rem .15rem .2rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--fg-muted); }
+    .item-name { color: var(--fg); }
+    .texture-break {
+      min-height: 34vh;
+      border-block: 1px solid var(--border);
+      background:
+        linear-gradient(90deg, transparent 49.8%, rgba(139,92,62,.18) 50%, transparent 50.2%),
+        var(--bg-sub);
+    }
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3rem;
+      border: 1px solid var(--border);
+    }
+    .process {
+      background: var(--bg);
+      padding: 2rem;
+      min-height: 220px;
+    }
+    .number { color: var(--accent-warm); font-size: 2rem; font-style: italic; }
+    .categories {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 3rem;
+    }
+    .cat {
+      position: relative;
+      aspect-ratio: 5/4;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .cat img { filter: sepia(.5) brightness(.8); }
+    .cat span {
+      position: absolute;
+      left: 1.2rem;
+      bottom: 1.2rem;
+      padding: .5rem .9rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      font-family: var(--font-display);
+      font-size: 2rem;
+    }
+    footer {
+      padding: 3.5rem clamp(1.2rem, 5vw, 4rem);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .newsletter { display: flex; border-bottom: 1px solid var(--accent); align-self: end; }
+    input, button { font: inherit; color: inherit; }
+    input { width: 100%; border: 0; background: transparent; padding: .8rem 0; outline: 0; }
+    button { border: 0; background: transparent; color: var(--accent); cursor: pointer; }
+    .reveal { opacity: 0; transform: translateY(8px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .d1 { transition-delay: .12s; } .d2 { transition-delay: .24s; } .d3 { transition-delay: .36s; }
+    @media (max-width: 760px) {
+      nav { align-items: center; }
+      .nav-links a:nth-child(n+2) { display: none; }
+      .hero, .story-grid, footer { grid-template-columns: 1fr; }
+      .hero-image { min-height: 430px; }
+      .shop-grid { grid-template-columns: 1fr; }
+      .item:nth-child(n) { grid-column: auto; margin-top: 0; }
+      .process-grid, .categories { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <nav><a class="logo" href="#">FRAY</a><div class="nav-links"><a href="#story">Story</a><a href="#shop">Goods</a><a href="#process">Process</a></div></nav>
+  <main>
+    <section class="hero">
+      <div class="hero-image reveal"><img src="https://picsum.photos/seed/fray-hero/900/1100" alt="FRAY sepia campaign"></div>
+      <div class="hero-copy reveal d1"><p class="kicker">Slow fashion archive</p><h1>FRAY</h1><p class="tagline">Worn with intention</p><p class="intro">新しさだけを追わない服。擦れ、褪せ、ほどけた端に、時間を重ねた人の気配を残すためのヴィンテージ・ワードローブ。</p></div>
+    </section>
+    <section class="section" id="story">
+      <div class="story-grid">
+        <div class="reveal"><p class="kicker">Manifesto</p><h2>古さを、<br>美しさとして<br>着る。</h2></div>
+        <div class="story-copy reveal d1">
+          <p>FRAYは、素材が歩んできた時間を消さずに受け継ぐブランドです。私たちは、リネン、ウール、コットンなど自然に還る繊維を中心に選び、手入れをしながら長く着られる服だけを小さく編集しています。完璧な新品ではなく、少しの揺らぎや色むらを含んだものにこそ、毎日の生活に馴染む強さがあると考えています。</p>
+          <p>製造では修繕可能な縫製、過剰な包装を避ける梱包、地域の小さな工房との協働を大切にしています。サステナビリティは飾り文句ではなく、買う量を減らし、一着に向き合う時間を増やすことから始まる。FRAYは、その選択を静かに支えるための場所です。</p>
+        </div>
+      </div>
+    </section>
+    <section class="section" id="shop">
+      <p class="kicker">Recent Finds</p><h2 class="reveal">One of few.</h2>
+      <div class="shop-grid">
+        <article class="item reveal"><span class="stamp">入荷</span><div class="item-img"><img src="https://picsum.photos/seed/fray1/620/820" alt="Mended linen jacket"></div><div class="item-info"><span class="item-name">Mended Linen Jacket</span><span>¥18,000</span></div></article>
+        <article class="item reveal d1"><span class="stamp">一点物</span><div class="item-img"><img src="https://picsum.photos/seed/fray2/620/820" alt="Faded cotton dress"></div><div class="item-info"><span class="item-name">Faded Cotton Dress</span><span>¥14,500</span></div></article>
+        <article class="item reveal d2"><span class="stamp">修繕済</span><div class="item-img"><img src="https://picsum.photos/seed/fray3/620/820" alt="Washed wool vest"></div><div class="item-info"><span class="item-name">Washed Wool Vest</span><span>¥11,800</span></div></article>
+        <article class="item reveal d3"><span class="stamp">再編集</span><div class="item-img"><img src="https://picsum.photos/seed/fray4/620/820" alt="Utility apron skirt"></div><div class="item-info"><span class="item-name">Utility Apron Skirt</span><span>¥12,400</span></div></article>
+      </div>
+    </section>
+    <div class="texture-break" aria-hidden="true"></div>
+    <section class="section" id="process">
+      <p class="kicker">Process</p><h2 class="reveal">Made to remain.</h2>
+      <div class="process-grid">
+        <div class="process reveal"><p class="number">01</p><h3>素材</h3><p>麻、綿、羊毛を中心に、肌に馴染む天然素材を選別します。</p></div>
+        <div class="process reveal d1"><p class="number">02</p><h3>製造</h3><p>小さな工房で修繕しやすい縫製へ整え、次の持ち主へ渡します。</p></div>
+        <div class="process reveal d2"><p class="number">03</p><h3>配慮</h3><p>過剰包装を避け、長く着るためのケア情報を添えます。</p></div>
+      </div>
+      <div class="categories">
+        <a class="cat reveal" href="#"><img src="https://picsum.photos/seed/fray-outer/800/640" alt="Outerwear"><span>Outer</span></a>
+        <a class="cat reveal d1" href="#"><img src="https://picsum.photos/seed/fray-dress/800/640" alt="Dresses"><span>Dresses</span></a>
+      </div>
+    </section>
+  </main>
+  <footer><div><p class="logo">FRAY</p><p>Worn with intention<br>Design Study — apparel-vintage<br>架空ブランド / Fictional brand</p></div><form class="newsletter"><input type="email" placeholder="便りを受け取る" aria-label="メールアドレス"><button type="button">Send</button></form></footer>
+  <script>
+    const io = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); io.unobserve(entry.target); }
+    }), { threshold: .08, rootMargin: '0px 0px -40px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
