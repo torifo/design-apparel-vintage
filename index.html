@@ -139,11 +139,19 @@
     .item-info { padding: .8rem .15rem .2rem; display: flex; justify-content: space-between; gap: 1rem; color: var(--fg-muted); }
     .item-name { color: var(--fg); }
     .texture-break {
-      min-height: 34vh;
+      min-height: 22vh;
       border-block: 1px solid var(--border);
       background:
         linear-gradient(90deg, transparent 49.8%, rgba(139,92,62,.18) 50%, transparent 50.2%),
         var(--bg-sub);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--fg-muted);
+      font-family: var(--font-display);
+      letter-spacing: .35em;
+      font-size: .78rem;
+      text-transform: uppercase;
     }
     .process-grid {
       display: grid;
@@ -232,7 +240,7 @@
         <article class="item reveal d3"><span class="stamp">再編集</span><div class="item-img"><img src="https://picsum.photos/seed/fray4/620/820" alt="Utility apron skirt"></div><div class="item-info"><span class="item-name">Utility Apron Skirt</span><span>¥12,400</span></div></article>
       </div>
     </section>
-    <div class="texture-break" aria-hidden="true"></div>
+    <div class="texture-break" aria-hidden="true"><span>Est. — Archive of worn cloth</span></div>
     <section class="section" id="process">
       <p class="kicker">Process</p><h2 class="reveal">Made to remain.</h2>
       <div class="process-grid">
